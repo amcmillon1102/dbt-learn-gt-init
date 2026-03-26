@@ -1,12 +1,10 @@
 with customers as (
 
     select
-        id as customer_id,
+        customer_id,
         first_name,
         last_name
 
-    -- from raw.jaffle_shop.customers
-    -- from {{source('jaffle_shop', 'customers')}}
     from {{ ref('stg_jaffle_shop__customers') }}
 
 ),
@@ -14,13 +12,12 @@ with customers as (
 orders as (
 
     select
-        id as order_id,
-        user_id as customer_id,
+        order_id,
+        customer_id,
         order_date,
         status
 
-    -- from raw.jaffle_shop.orders
-    from {{source('jaffle_shop', 'orders')}}
+    from {{ ref('stg_jaffle_shop__orders') }}
 
 ),
 
