@@ -1,0 +1,17 @@
+sources:
+  - name: jaffle_shop
+    schema: jaffle_shop
+    description: A replica of postgres database
+    database: raw
+    tables:
+      - name: customers
+      - name: jaffle_shop_orders
+        identifier: orders
+        config:
+          freshness:
+            warn_after:
+             count: 10
+             period: day
+            error_after:
+             count: 10000
+             period: day
