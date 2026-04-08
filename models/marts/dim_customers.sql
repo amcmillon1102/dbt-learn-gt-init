@@ -1,7 +1,7 @@
 {{
     config(
         materialized='table',
-        tag=['nightly']
+        tag=['job']
     )
 }}
 
