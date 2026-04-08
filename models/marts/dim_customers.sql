@@ -1,7 +1,13 @@
 {{
     config(
+<<<<<<< HEAD
         materialized='table'
         tags: ['nightly']
+=======
+        materialized='table',
+        tags="nightly"
+
+>>>>>>> 6bcbf5ea257881f82a2e4662ebce1ea65edc3cb2
     )
 }}
 
@@ -19,12 +25,21 @@ with customers as (
 orders as (
 
     select
+<<<<<<< HEAD
          order_id,
          customer_id,
      order_date,
         status
 
     from {{ ref('stg_jaffle_shop__jaffle_shop_orders') }}
+=======
+        order_id,
+        customer_id,
+        order_date,
+        status
+
+    from {{ ref('stg_jaffle_shop__orders') }}
+>>>>>>> 6bcbf5ea257881f82a2e4662ebce1ea65edc3cb2
 
 ),
 
